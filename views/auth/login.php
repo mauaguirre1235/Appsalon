@@ -1,5 +1,5 @@
 <h1 class="nombre-pagina">Login</h1>
-<p class="descripcion-pagina">Inica sesion con tus datos</p>
+<p class="descripcion-pagina">Iniciar sesion con tus datos</p>
 
 <form action="formulario" method="POST" action="/">
     <div class="campo">
@@ -12,7 +12,7 @@
     </div>
 
     <div class="campo">
-        <label for="password">Passwor</label>
+        <label for="password">Password</label>
         <input 
             type="password" 
             id="password"
