@@ -9,7 +9,10 @@
         type="text"
         id="nombre"
         name="nombre"
-        placeholder="Tu nombre"/>
+        placeholder="Tu nombre"
+        value="<?php echo s($usuario->nombre); ?>"
+        />
+        
     </div>
     <div class="campo">
         <label for="apellido">Apellido</label>
@@ -17,7 +20,9 @@
         type="text"
         id="apellido"
         name="apellido"
-        placeholder="Tu apellido"/>
+        placeholder="Tu apellido"
+         value="<?php echo s($usuario->apellido); ?>"
+      />
     </div>
     <div class="campo">
         <label for="telefono">Telefono</label>
@@ -25,7 +30,9 @@
         type="tel"
         id="telefono"
         name="telefono"
-        placeholder="Tu telefono"/>
+        placeholder="Tu telefono"
+         value="<?php echo s($usuario->telefono); ?>"
+      />
     </div>
     <div class="campo">
         <label for="email">Email</label>
@@ -33,10 +40,12 @@
         type="email"
         id="email"
         name="email"
-        placeholder="Tu email"/>
+        placeholder="Tu email"
+         value="<?php echo s($usuario->email); ?>"
+      />
     </div>
      <div class="campo">
-        <label for="password">Email</label>
+        <label for="password">Password</label>
         <input 
         type="password"
         id="password"
@@ -46,8 +55,8 @@
     
    <input type="submit" value="Crear cuenta" class="boton">
 </form>
-
+ 
 <div class="acciones">
-    <a href="/crear-cuenta">¿ Ya tienes una cuenta ? Iniciar sesion</a>
+    <a href="/">¿ Ya tienes una cuenta ? Iniciar sesion</a>
     <a href="/olvide">Olvidaste tu password</a>
 </div>
