@@ -58,4 +58,15 @@ class Usuario extends ActiveRecord{
         return self::$alertas;
     }
 
+       public function existeUsuario(){
+        $query = "SELECT * FROM " . self::$tabla . " WHERE email = '" . $this->email . "' LIMIT 1 ";
+
+       $resultado = self::$db->query($query);
+
+      if($resultado->num_rows) {
+        self::$alertas['error'][] = 'El usuario ya esta registrado';
+      }
+      return $resultado;
+    }
+
     }
