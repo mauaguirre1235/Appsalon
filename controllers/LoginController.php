@@ -44,18 +44,22 @@ class LoginController
 
 
             // Revisar que alerta este vacio 
-            if(empty($alertas)) {
+            if (empty($alertas)) {
                 // verificar que el usuario no este registrado
 
-               $resultado = $usuario->existeUsuario();
+                $resultado = $usuario->existeUsuario();
 
-               if($resultado->num_rows) {
+                if ($resultado->num_rows) {
                     $alertas = Usuario::getAlertas();
-               } else {
-                debuguear("no esta registrado");
-               }
+                } else {
+                    // Hashear el password 
+                    $usuario->hashPasword();
+                    // No esta registrado
+                    debuguear($usuario);
+
+                }
             }
-           
+
 
         }
         $router->render('auth/crear-cuenta', [
@@ -67,5 +71,6 @@ class LoginController
     }
 
  
+
 
 }
