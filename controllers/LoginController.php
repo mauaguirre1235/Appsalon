@@ -54,9 +54,11 @@ class LoginController
                 } else {
                     // Hashear el password 
                     $usuario->hashPasword();
-                    // No esta registrado
-                    debuguear($usuario);
 
+                    // generar un token
+                    $usuario->crearToken();
+                    
+                    debuguear($usuario);
                 }
             }
 

@@ -1,12 +1,23 @@
-<?php 
+<?php
 
-namespace Model; 
+namespace Model;
 
-class Usuario extends ActiveRecord{
+class Usuario extends ActiveRecord
+{
     // Bse de datos 
     protected static $tabla = 'usuarios';
-    protected static $columnasDB = ['id','nombre','apellido','email','password','telefono'
-    ,'admin','confirmado','token'];
+    protected static $columnasDB = [
+        'id',
+        'nombre',
+        'apellido',
+        'email',
+        'password',
+        'telefono'
+        ,
+        'admin',
+        'confirmado',
+        'token'
+    ];
 
     public $id;
     public $nombre;
@@ -19,7 +30,8 @@ class Usuario extends ActiveRecord{
     public $token;
 
 
-    public function __construct($args = []) {
+    public function __construct($args = [])
+    {
         $this->id = $args['id'] ?? null;
         $this->nombre = $args['nombre'] ?? '';
         $this->apellido = $args['apellido'] ?? '';
@@ -28,29 +40,30 @@ class Usuario extends ActiveRecord{
         $this->telefono = $args['telefono'] ?? '';
         $this->admin = $args['admin'] ?? null;
         $this->confirmado = $args['confirmado'] ?? null;
-        $this->token = $args['token'] ?? '' ;
-    
+        $this->token = $args['token'] ?? '';
+
     }
 
     // mensajes de vaidacion para la creacion de una cuenta 
 
-    public function validarNuevaCuenta(){
-        if(!$this->nombre) {
+    public function validarNuevaCuenta()
+    {
+        if (!$this->nombre) {
             self::$alertas['error'][] = "El nombre del  es obligatorio";
         }
-          if(!$this->apellido) {
+        if (!$this->apellido) {
             self::$alertas['error'][] = "El apellido del  es obligatorio";
         }
-        if(!$this->telefono) {
+        if (!$this->telefono) {
             self::$alertas['error'][] = "El telefono del  es obligatorio";
         }
-        if(!$this->email) {
+        if (!$this->email) {
             self::$alertas['error'][] = "El E-mail del  es obligatorio";
         }
-        if(!$this->password) {
+        if (!$this->password) {
             self::$alertas['error'][] = "El password del  es obligatorio";
         }
-        if(strlen($this->password) < 6) {
+        if (strlen($this->password) < 6) {
             self::$alertas['error'][] = "El password debe de contener al menos 6 caracteres";
 
         }
@@ -58,21 +71,26 @@ class Usuario extends ActiveRecord{
         return self::$alertas;
     }
 
-       public function existeUsuario(){
+    public function existeUsuario()
+    {
         $query = "SELECT * FROM " . self::$tabla . " WHERE email = '" . $this->email . "' LIMIT 1 ";
 
-       $resultado = self::$db->query($query);
+        $resultado = self::$db->query($query);
 
-      if($resultado->num_rows) {
-        self::$alertas['error'][] = 'El usuario ya esta registrado';
-      }
-      return $resultado;
+        if ($resultado->num_rows) {
+            self::$alertas['error'][] = 'El usuario ya esta registrado';
+        }
+        return $resultado;
     }
 
-       public function hashPasword()
+    public function hashPasword()
     {
         $this->password = password_hash($this->password, PASSWORD_BCRYPT);
 
     }
 
+    public function crearToken(){
+        $this->token = uniqid();
     }
+
+}
