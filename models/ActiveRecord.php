@@ -91,7 +91,7 @@ class ActiveRecord {
 
     // Registros - CRUD
     public function guardar() {
-        $resultado = '';
+        $resultado = ''; 
         if(!is_null($this->id)) {
             // actualizar
             $resultado = $this->actualizar();
@@ -122,6 +122,14 @@ class ActiveRecord {
         $resultado = self::consultarSQL($query);
         return array_shift( $resultado ) ;
     }
+    
+    // Busca un registro por su id
+    public static function where($columna, $valor) {
+        $query = "SELECT * FROM " . static::$tabla  ." WHERE ${columna} = '{$valor}'";
+        $resultado = self::consultarSQL($query);
+        return array_shift( $resultado ) ;
+    }
+ 
 
     // crea un nuevo registro
     public function crear() {
