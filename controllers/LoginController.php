@@ -63,14 +63,14 @@ class LoginController
                     $email = new Email($usuario->nombre, $usuario->email, $usuario->token);
 
                     $email->enviarConfirmacion();
-                     
+
                     // crear usuario 
                     $resultado = $usuario->guardar();
-                    if($resultado) {
+                    if ($resultado) {
                         header('Location: /mensaje');
 
                     }
-                    
+
                     //debuguear($usuario);
                 }
             }
@@ -85,27 +85,41 @@ class LoginController
 
     }
 
-    public static function mensaje(Router $router){
+    public static function mensaje(Router $router)
+    {
 
         $router->render('auth/mensaje');
     }
 
-    public static function confirmar(Router $router){
+    public static function confirmar(Router $router)
+    {
 
         $alertas = [];
 
         $token = s($_GET['token']);
 
         $usuario = Usuario::where('token', $token);
- 
-        debuguear($usuario);
-       
+
+        if (empty($usuario)) {
+            // mostrar mensaje de error 
+            Usuario::setAlerta('error', 'Token no Valido');
+        } else {
+            $usuario->confirmado = "1";
+            $usuario->token = null;
+            $usuario->guardar();
+            Usuario::setAlerta('exito', 'Cuenta Comprobada Correctamente');
+
+        } 
+        // obtener alertas
+        $alertas = Usuario::getAlertas();
+
+        // renderizar la vista
         $router->render('auth/confirmar-cuenta', [
             'alertas' => $alertas
-        ]); 
-    } 
-  
- 
+        ]);
+    }
+
+
 
 
 }
