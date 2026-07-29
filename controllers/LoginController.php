@@ -22,12 +22,12 @@ class LoginController
            $alertas =  $auth->validarLogin();
 
            if(empty($alertas)){
-            // comprobar que exista el usaurio
+            // comprobar que exista el usuario
             $usuario = Usuario::where('email', $auth->email);
 
             if($usuario) {
                 // verificar el password
-                $usuario->comprobarPasswordAndVerificado();
+                $usuario->comprobarPasswordAndVerificado($auth->password);
             } else {
                 Usuario::setAlerta('error', 'usuario no encontrado');
             }
