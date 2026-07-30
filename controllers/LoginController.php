@@ -11,51 +11,51 @@ class LoginController
 
     public static function login(Router $router)
     {
-        $alertas = [];  
-
-       
+        $alertas = [];
 
 
-        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $auth = new Usuario($_POST);
 
-           $alertas =  $auth->validarLogin();
+            $alertas = $auth->validarLogin();
 
-           if(empty($alertas)){
-            // comprobar que exista el usuario
-            $usuario = Usuario::where('email', $auth->email);
+            if (empty($alertas)) {
+                // comprobar que exista el usuario
+                $usuario = Usuario::where('email', $auth->email);
 
-            if($usuario) {
-                // verificar el password
-               if( $usuario->comprobarPasswordAndVerificado($auth->password)){
-                    // autenticar al usuario 
-                    $_SESSION['id'] = $usuario->id;
-                    $_SESSION['nombre'] = $usuario->nombre . " " . $usuario->apellido;
-                    $_SESSION['email'] = $usuario->email ;
-                    $_SESSION['login'] = true;
+                if ($usuario) {
+                    // verificar el password
+                    if ($usuario->comprobarPasswordAndVerificado($auth->password)) {
+                        // autenticar al usuario 
+                        $_SESSION['id'] = $usuario->id;
+                        $_SESSION['nombre'] = $usuario->nombre . " " . $usuario->apellido;
+                        $_SESSION['email'] = $usuario->email;
+                        $_SESSION['login'] = true;
 
-                    // redireccionamiento 
-                    if($usuario->admin === "1") {
-                        $_SESSION['admin'] =$usuario->admin ?? null;
+                        // redireccionamiento 
+                        if ($usuario->admin === "1") {
+                            $_SESSION['admin'] = $usuario->admin ?? null;
 
-                         header('Location: /admin');
-                    } else {
-                        header('Location: /cita');
+                            header('Location: /admin');
+                        } else {
+                            header('Location: /cita');
+                        }
+
+                        debuguear($_SESSION);
+
                     }
+                } else {
+                    Usuario::setAlerta('error', 'usuario no encontrado');
+                }
 
-                    debuguear($_SESSION);
-
-               }
-            } else {
-                Usuario::setAlerta('error', 'usuario no encontrado');
-            }
-           
 
             }
-            
-        } 
 
-        $alertas =Usuario::getAlertas();
+        }
+
+        $alertas = Usuario::getAlertas();
 
         $router->render('auth/login', [
             'alertas' => $alertas
@@ -72,12 +72,34 @@ class LoginController
     {
         $alertas = [];
 
-        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // leer el email 
             $auth = new Usuario($_POST);
-            $alertas = $auth->validarEmail(); 
-            
+            $alertas = $auth->validarEmail();
+
+            if (empty($alertas)) {
+                $usuario = Usuario::where('email', $auth->email);
+
+                if ($usuario && $usuario->confirmado === "1") {
+
+                    // generar un token 
+                    $usuario->crearToken();
+                    $usuario->guardar();
+
+                    // TODO: enviar el email 
+
+                    Usuario::setAlerta('exito', 'Revisa tu email');
+
+
+                } else {
+                    Usuario::setAlerta('error', 'El usuario no existe o no esta confirmado');
+
+                }
+            }
+
         }
+        $alertas = Usuario::getAlertas();
+
 
         $router->render('auth/olvide-password', [
             'alertas' => $alertas
@@ -167,7 +189,7 @@ class LoginController
             $usuario->guardar();
             Usuario::setAlerta('exito', 'Cuenta Comprobada Correctamente');
 
-        } 
+        }
         // obtener alertas
         $alertas = Usuario::getAlertas();
 
