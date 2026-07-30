@@ -10,8 +10,10 @@
     display: flex;
     margin-bottom: 2rem ;
     text-align: center;
-    label {
+    label { 
         flex: 0 0 10rem;
+        position: relative;
+         top: 10px; 
 
     }
     
