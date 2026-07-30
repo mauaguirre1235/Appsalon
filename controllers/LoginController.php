@@ -28,7 +28,23 @@ class LoginController
             if($usuario) {
                 // verificar el password
                if( $usuario->comprobarPasswordAndVerificado($auth->password)){
-                    
+                    // autenticar al usuario 
+                    $_SESSION['id'] = $usuario->id;
+                    $_SESSION['nombre'] = $usuario->nombre . " " . $usuario->apellido;
+                    $_SESSION['email'] = $usuario->email ;
+                    $_SESSION['login'] = true;
+
+                    // redireccionamiento 
+                    if($usuario->admin === "1") {
+                        $_SESSION['admin'] =$usuario->admin ?? null;
+
+                         header('Location: /admin');
+                    } else {
+                        header('Location: /cita');
+                    }
+
+                    debuguear($_SESSION);
+
                }
             } else {
                 Usuario::setAlerta('error', 'usuario no encontrado');
