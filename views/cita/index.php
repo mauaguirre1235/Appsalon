@@ -47,4 +47,15 @@
         <h2>Resumen</h2>
         <p>Verifica que la informacion sea correcta</p>
     </div>
+
+    <div class="paginacion">
+        <button
+        id="anterior"
+        class="boton"
+        >&laquo; anterior</button>
+         <button
+        id="sigueinte"
+        class="boton"
+        > Siguiente&raquo;</button>
+    </div>
 </div>
