@@ -3,7 +3,7 @@
 
 <?php include_once __DIR__ . '/../templates/alertas.php'; ?>
 
-<div class="acciones">
-    <a href="/">Inicar sesion</a>
-
+<div class="acciones"> 
+    <a href="/" class="boton">Inicar sesion</a>
 </div>
+

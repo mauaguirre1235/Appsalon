@@ -10,7 +10,7 @@ include_once __DIR__ . "/../templates/alertas.php"
         <label for="nombre">Nombre</label>
         <input 
         type="text"
-        id="nombre"
+        id="nombre" 
         name="nombre"
         placeholder="Tu nombre"
         value="<?php echo s($usuario->nombre); ?>"
@@ -33,7 +33,7 @@ include_once __DIR__ . "/../templates/alertas.php"
         type="tel"
         id="telefono"
         name="telefono"
-        placeholder="Tu telefono"
+        placeholder="Tu telefono" 
          value="<?php echo s($usuario->telefono); ?>"
       />
     </div>
