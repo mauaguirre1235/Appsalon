@@ -54,11 +54,11 @@
         class="boton"
         >&laquo; anterior</button>
          <button
-        id="sigueinte"
+        id="siguiente"
         class="boton"
-        > Siguiente&raquo;</button>
+        > siguiente&raquo;</button>
     </div>
-</div>
+</div> 
 
 <?php 
     $script = "
