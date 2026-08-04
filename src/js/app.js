@@ -8,16 +8,28 @@ function iniciarApp() {
     tabs(); // cambiar la seccion cuando se presione los tabs
 }
 
-function mostrarSeccion(){
-    console.log('Mostrando seccion..');
+function mostrarSeccion() {
+
+    // ocultar las seccion que tenga la clase de mostrar
+    const seccionAnterior = document.querySelector('.mostrar');
+    if (seccionAnterior) {
+        seccionAnterior.classList.remove('mostrar');
+    }
+
+    // seleccionar la seccion con el paso..
+    const pasoSelector = `#paso-${paso}`;
+    const seccion = document.querySelector(pasoSelector);
+
+    seccion.classList.add('mostrar');
 }
+
 
 function tabs() {
     const botones = document.querySelectorAll('.tabs button');
 
-    botones.forEach( boton => {
-        boton.addEventListener('click', function(e) {
-            paso = parseInt( e.target.dataset.paso); 
+    botones.forEach(boton => {
+        boton.addEventListener('click', function (e) {
+            paso = parseInt(e.target.dataset.paso);
 
             mostrarSeccion();
         });
