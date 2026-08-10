@@ -32,8 +32,12 @@
                 <input 
                 id="fecha"
                 type="date"
+                min="2026-08-01"
+                min="<?php echo date('Y-m-d', strtotime('+1 day') ); ?>"
                 />
             </div>
+
+        
              <div class="campo">
                 <label for="hora">Hora</label>
                 <input 
