@@ -26,7 +26,7 @@ function iniciarApp() {
     seleccionarFecha(); // agrega la fecha de la cita en el objeto 
 
 
-    
+
 
 }
 
@@ -161,11 +161,11 @@ function seleccionarServicio(servicio) {
     if (servicios.some(agregado => agregado.id === id)) {
         // Eliminarlo
         cita.servicios = servicios.filter(agregado => agregado.id !== id);
-         divServicio.classList.remove('seleccionado');
+        divServicio.classList.remove('seleccionado');
     } else {
         // Agregarlo 
         cita.servicios = [...servicios, servicio];
-         divServicio.classList.add('seleccionado');
+        divServicio.classList.add('seleccionado');
     }
 
 
@@ -173,24 +173,49 @@ function seleccionarServicio(servicio) {
 }
 
 
-function nombreCliente(){
+function nombreCliente() {
     cita.nombre = document.querySelector('#nombre').value;
-    
+
 }
 
-function seleccionarFecha(){
+function seleccionarFecha() {
     const inputFecha = document.querySelector('#fecha');
-    inputFecha.addEventListener('input', function(e){
+    inputFecha.addEventListener('input', function (e) {
 
         console.log(e.target.value);
         const dia = new Date(e.target.value).getUTCDay();
-        
-        if([6, 0].includes(dia)) {
+
+        if ([6, 0].includes(dia)) {
             e.target.value = '';
-            console.log('Sabados y Domingos no abrimos')
+            mostrarAlerta('Fines de semana no permitidos', 'error');
         } else {
             cita.fecha = e.target.value;
-        }  
+        }
     });
 }
 
+
+function mostrarAlerta(mensaje, tipo){
+
+    // previene que se genere mas de 1 alerta 
+    const alertaPrevia = document.querySelector('.alerta');
+
+    if(alertaPrevia) return ; 
+
+    // scripting para crear una alerta
+    const alerta = document.createElement('DIV');
+    alerta.textContent = mensaje; 
+    alerta.classList.add('alerta');
+    alerta.classList.add(tipo);
+
+    const formulario = document.querySelector('.formulario');
+    formulario.appendChild(alerta);
+
+    // eliminar una alerta
+    setTimeout(() => {
+        alerta.remove();
+    }, 3000);
+   
+
+
+}
