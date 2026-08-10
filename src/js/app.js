@@ -24,7 +24,7 @@ function iniciarApp() {
 
     nombreCliente(); // agrega el nombre del cliente al objeto de cita 
     seleccionarFecha(); // agrega la fecha de la cita en el objeto 
-
+    seleccionarHora(); // Añade la hora de la cita en el objeto
 
 
 
@@ -194,6 +194,23 @@ function seleccionarFecha() {
     });
 }
 
+function seleccionarHora(){
+    const inputHora = document.querySelector('#hora');
+    inputHora.addEventListener('input', function(e){
+       
+
+        const horaCita = e.target.value;
+        const hora = horaCita.split(":")[0];
+        if(hora < 10 || hora > 18) {
+            e.target.value = '';
+            mostrarAlerta('Hora no valida', 'error');
+        } else {
+            cita.hora = e.target.value;
+            console.log(cita);
+        }
+    });
+}
+
 
 function mostrarAlerta(mensaje, tipo){
 
@@ -216,6 +233,5 @@ function mostrarAlerta(mensaje, tipo){
         alerta.remove();
     }, 3000);
    
-
-
 }
+
