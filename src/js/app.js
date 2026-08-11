@@ -26,6 +26,7 @@ function iniciarApp() {
     seleccionarFecha(); // agrega la fecha de la cita en el objeto 
     seleccionarHora(); // Añade la hora de la cita en el objeto
 
+    mostrarResumen(); // muestra el resumen de la cita
 
 
 }
@@ -64,7 +65,9 @@ function tabs() {
             paso = parseInt(e.target.dataset.paso);
 
             mostrarSeccion();
+
             botonesPaginador();
+    
         });
     })
 }
@@ -79,6 +82,8 @@ function botonesPaginador() {
     } else if (paso === 3) {
         paginaAnterior.classList.remove('ocultar');
         paginaSiguiente.classList.add('ocultar');
+
+        mostrarResumen();
     } else {
         paginaAnterior.classList.remove('ocultar');
         paginaSiguiente.classList.remove('ocultar');
@@ -194,14 +199,14 @@ function seleccionarFecha() {
     });
 }
 
-function seleccionarHora(){
+function seleccionarHora() {
     const inputHora = document.querySelector('#hora');
-    inputHora.addEventListener('input', function(e){
-       
+    inputHora.addEventListener('input', function (e) {
+
 
         const horaCita = e.target.value;
         const hora = horaCita.split(":")[0];
-        if(hora < 10 || hora > 18) {
+        if (hora < 10 || hora > 18) {
             e.target.value = '';
             mostrarAlerta('Hora no valida', 'error');
         } else {
@@ -212,16 +217,16 @@ function seleccionarHora(){
 }
 
 
-function mostrarAlerta(mensaje, tipo){
+function mostrarAlerta(mensaje, tipo) {
 
     // previene que se genere mas de 1 alerta 
     const alertaPrevia = document.querySelector('.alerta');
 
-    if(alertaPrevia) return ; 
+    if (alertaPrevia) return;
 
     // scripting para crear una alerta
     const alerta = document.createElement('DIV');
-    alerta.textContent = mensaje; 
+    alerta.textContent = mensaje;
     alerta.classList.add('alerta');
     alerta.classList.add(tipo);
 
@@ -232,6 +237,22 @@ function mostrarAlerta(mensaje, tipo){
     setTimeout(() => {
         alerta.remove();
     }, 3000);
-   
+
 }
+
+
+function mostrarResumen() {
+    const resumen = document.querySelector('.contenido-resumen');
+
+
+    if (Object.values(cita).includes('')) {
+        console.log('Hacen falta datos')
+    } else {
+        console.log('TODO BIEN');
+    }
+
+
+}
+
+
 
