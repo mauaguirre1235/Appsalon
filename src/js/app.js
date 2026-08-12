@@ -67,7 +67,7 @@ function tabs() {
             mostrarSeccion();
 
             botonesPaginador();
-    
+
         });
     })
 }
@@ -192,7 +192,7 @@ function seleccionarFecha() {
 
         if ([6, 0].includes(dia)) {
             e.target.value = '';
-            mostrarAlerta('Fines de semana no permitidos', 'error');
+            mostrarAlerta('Fines de semana no permitidos', 'error', '.formulario');
         } else {
             cita.fecha = e.target.value;
         }
@@ -208,7 +208,7 @@ function seleccionarHora() {
         const hora = horaCita.split(":")[0];
         if (hora < 10 || hora > 18) {
             e.target.value = '';
-            mostrarAlerta('Hora no valida', 'error');
+            mostrarAlerta('Hora no valida', 'error', '.formulario');
         } else {
             cita.hora = e.target.value;
             console.log(cita);
@@ -217,12 +217,14 @@ function seleccionarHora() {
 }
 
 
-function mostrarAlerta(mensaje, tipo) {
+function mostrarAlerta(mensaje, tipo, elemento, desaparece = true) {
 
     // previene que se genere mas de 1 alerta 
     const alertaPrevia = document.querySelector('.alerta');
 
-    if (alertaPrevia) return;
+    if (alertaPrevia) {
+        alertaPrevia.remove();
+    }
 
     // scripting para crear una alerta
     const alerta = document.createElement('DIV');
@@ -230,13 +232,17 @@ function mostrarAlerta(mensaje, tipo) {
     alerta.classList.add('alerta');
     alerta.classList.add(tipo);
 
-    const formulario = document.querySelector('.formulario');
-    formulario.appendChild(alerta);
+    const referencia = document.querySelector(elemento);
+    referencia.appendChild(alerta);
 
-    // eliminar una alerta
-    setTimeout(() => {
-        alerta.remove();
-    }, 3000);
+    if (desaparece) {
+        // eliminar una alerta
+        setTimeout(() => {
+            alerta.remove();
+        }, 3000);
+
+    }
+
 
 }
 
@@ -245,13 +251,12 @@ function mostrarResumen() {
     const resumen = document.querySelector('.contenido-resumen');
 
 
-    if (Object.values(cita).includes('')) {
-        console.log('Hacen falta datos')
+    if (Object.values(cita).includes('') || cita.servicios.length === 0) {
+        mostrarAlerta('Faltan datos de Servicios, Fecha u Hora', 'error', '.contenido-resumen',
+            false);
     } else {
         console.log('TODO BIEN');
     }
-
-
 }
 
 
