@@ -187,7 +187,7 @@ function seleccionarFecha() {
     const inputFecha = document.querySelector('#fecha');
     inputFecha.addEventListener('input', function (e) {
 
-        console.log(e.target.value);
+
         const dia = new Date(e.target.value).getUTCDay();
 
         if ([6, 0].includes(dia)) {
@@ -250,13 +250,52 @@ function mostrarAlerta(mensaje, tipo, elemento, desaparece = true) {
 function mostrarResumen() {
     const resumen = document.querySelector('.contenido-resumen');
 
+    // Limpiar el contenid de resumen 
+    while (resumen.firstChild) {
+        resumen.removeChild(resumen.firstChild);
+    }
 
     if (Object.values(cita).includes('') || cita.servicios.length === 0) {
         mostrarAlerta('Faltan datos de Servicios, Fecha u Hora', 'error', '.contenido-resumen',
             false);
-    } else {
-        console.log('TODO BIEN');
+        return;
     }
+
+    // Formatear el div de resumen 
+    const { nombre, fecha, hora, servicios } = cita;
+
+    const nombreCliente = document.createElement('P');
+    nombreCliente.innerHTML = `<span>Nombre:</span> ${nombre}`;
+
+    const fechaCita = document.createElement('P');
+    fechaCita.innerHTML = `<span>Fecha:</span> ${fecha}`;
+
+     const horaCita = document.createElement('P');
+    horaCita.innerHTML = `<span>Hora:</span> ${hora}`;
+
+    servicios.forEach(servicio => {
+        const {id, precio, nombre} = servicio;
+        const contenedorServicios = document.createElement('DIV');
+        contenedorServicios.classList.add('contenedor-servicio');
+
+        const textoServicio = document.createElement('P');
+        textoServicio.textContent = nombre;
+
+        const precioServicio = document.createElement('P');
+        precioServicio.innerHTML = `<span>Precio:</span> $${precio}`; 
+
+        contenedorServicios.appendChild(textoServicio);
+        contenedorServicios.appendChild(precioServicio);
+
+        resumen.appendChild(contenedorServicios);
+
+    })
+
+    resumen.appendChild(nombreCliente);
+    resumen.appendChild(fechaCita);
+    resumen.appendChild(horaCita);
+   
+    
 }
 
 
