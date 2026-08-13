@@ -330,8 +330,11 @@ function mostrarResumen() {
 }
 
 
-function reservarCita(){
-    console.log('Reservando cita..');
+function reservarCita(){ 
+    const datos = new FormData();
+    datos.append('nombre', 'juan');
+
+    console.log([...datos]);
 }
 
 
