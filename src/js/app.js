@@ -174,7 +174,7 @@ function seleccionarServicio(servicio) {
     }
 
 
-    console.log(cita);
+   // console.log(cita);
 }
 
 
@@ -211,7 +211,7 @@ function seleccionarHora() {
             mostrarAlerta('Hora no valida', 'error', '.formulario');
         } else {
             cita.hora = e.target.value;
-            console.log(cita);
+           // console.log(cita);
         }
     });
 }
@@ -304,10 +304,10 @@ function mostrarResumen() {
     const dia = fechaObj.getDate() + 2;
     const year = fechaObj.getFullYear();
     const fechaUTC = new Date(Date.UTC(year, mes, dia));
-    
-    const opciones = {weekday: 'long' , year: 'numeric', month: 'long', day: 'numeric' }
+
+    const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
     const fechaFormateada = fechaUTC.toLocaleDateString('es-MX', opciones);
-    
+
 
     const fechaCita = document.createElement('P');
     fechaCita.innerHTML = `<span>Fecha:</span> ${fechaFormateada}`;
@@ -330,21 +330,24 @@ function mostrarResumen() {
 }
 
 
-async function reservarCita(){ 
+async function reservarCita() {
+
     const datos = new FormData();
-    datos.append('nombre', 'juan'); 
+    datos.append('nombre', 'juan');
+    datos.append('edad', 18);  
 
     const url = 'http://localhost:3000/api/citas'
 
     const respuesta = await fetch(url, {
-        method: 'POST'
+        method: 'POST',
+        body : datos
     });
 
-    const resultado = await respuesta.json(); 
+    const resultado = await respuesta.json();
     console.log(resultado);
 
 
 
-} 
+}
 
 
