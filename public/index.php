@@ -40,4 +40,4 @@ $router->get('/api/Servicios', [APIController::class, 'index']);
 $router->post('/api/citas', [APIController::class, 'guardar']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
-$router->comprobarRutas();
+$router->comprobarRutas();    

@@ -59,7 +59,7 @@
         >&laquo; anterior</button>
          <button
         id="siguiente"
-        class="boton"
+        class="boton" 
         > siguiente&raquo;</button>
     </div>
 </div> 

@@ -19,7 +19,7 @@ class APIController
             'mensaje' => 'todo ok'
         ];
 
-        echo json_encode($respuesta);
+        echo json_encode($respuesta);   
     }
 
 
