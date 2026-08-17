@@ -176,11 +176,11 @@ function seleccionarServicio(servicio) {
     }
 
 
-   // console.log(cita);
+    // console.log(cita);
 }
 
-function idCliente(){
-    cita.id =document.querySelector('#id').value;
+function idCliente() {
+    cita.id = document.querySelector('#id').value;
 }
 
 function nombreCliente() {
@@ -216,7 +216,7 @@ function seleccionarHora() {
             mostrarAlerta('Hora no valida', 'error', '.formulario');
         } else {
             cita.hora = e.target.value;
-           // console.log(cita);
+            // console.log(cita);
         }
     });
 }
@@ -337,32 +337,57 @@ function mostrarResumen() {
 async function reservarCita() {
 
 
-     
-    const {nombre, fecha, hora, servicios, id} = cita;
+
+    const { nombre, fecha, hora, servicios, id } = cita;
 
     const idServicio = servicios.map(servicio => servicio.id);
-    
+
 
 
     const datos = new FormData();
-   
+
     datos.append('fecha', fecha);
     datos.append('hora', hora);
-     datos.append('usuarioId', id);
+    datos.append('usuarioId', id);
     datos.append('servicios', idServicio);
 
     //console.log([...datos]);
 
+    try {
 
-    const url = 'http://localhost:3000/api/citas'
+        const url = 'http://localhost:3000/api/citas'
 
-    const respuesta = await fetch(url, {
-        method: 'POST',
-        body : datos
-    });
+        const respuesta = await fetch(url, {
+            method: 'POST',
+            body: datos
+        });
 
-    const resultado = await respuesta.json();
-    console.log(resultado);
+        const resultado = await respuesta.json();
+        console.log(resultado.resultado);
+
+        if (resultado.resultado) {
+
+            Swal.fire({
+                icon: "success",
+                title: "Cita Creada...",
+                text: "Tu cita fue creada correctamente",
+                button: "OK"
+            }).then(() => {
+                setTimeout(() => {
+                    window.location.reload();
+                }, 3000);
+            })
+
+        }
+
+    } catch (error) {
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "Hubo un error al guardar la cita",
+        });
+
+    }
 
 }
 
