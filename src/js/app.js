@@ -324,7 +324,6 @@ function mostrarResumen() {
     resumen.appendChild(nombreCliente);
     resumen.appendChild(fechaCita);
     resumen.appendChild(horaCita);
-
     resumen.appendChild(botonReservar);
 
 }
@@ -332,9 +331,22 @@ function mostrarResumen() {
 
 async function reservarCita() {
 
+
+     
+    const {nombre, fecha, hora, servicios} = cita;
+
+    const idServicio = servicios.map(servicio => servicio.id);
+    
+
+
     const datos = new FormData();
-    datos.append('nombre', 'juan');
-    datos.append('edad', 18);  
+    datos.append('nombre', nombre);
+    datos.append('fecha', fecha);
+    datos.append('hora', hora);
+    datos.append('servicios', idServicio);
+
+    //console.log([...datos]);
+
 
     const url = 'http://localhost:3000/api/citas'
 
@@ -345,8 +357,6 @@ async function reservarCita() {
 
     const resultado = await respuesta.json();
     console.log(resultado);
-
-
 
 }
 
