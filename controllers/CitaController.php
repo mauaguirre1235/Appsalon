@@ -11,6 +11,8 @@ class CitaController
 
     if(!$_SESSION['nombre']){
     session_start();
+
+    isAuth();
       
     }
      
