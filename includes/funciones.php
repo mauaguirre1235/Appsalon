@@ -1,6 +1,7 @@
 <?php
 
-function debuguear($variable) : string {
+function debuguear($variable): string
+{
     echo "<pre>";
     var_dump($variable);
     echo "</pre>";
@@ -8,21 +9,34 @@ function debuguear($variable) : string {
 }
 
 // Escapa / Sanitizar el HTML
-function s($html) : string {
+function s($html): string
+{
     $s = htmlspecialchars($html);
     return $s;
 }
 
+function esUltimo(string $actual, string $proximo): bool
+{
+    if ($actual !== $proximo) {
+        return true;
+    }
+
+    return false;
+}
+
+
 // funcion que revisa si el usuario esta autenticado 
 
-function isAuth() : void {
-    if(!isset($_SESSION['login'])){
+function isAuth(): void
+{
+    if (!isset($_SESSION['login'])) {
         header('Location: /');
     }
 }
 
-function isSession() : void {
-    if(!isset($_SESSION)) {
+function isSession(): void
+{
+    if (!isset($_SESSION)) {
         session_start();
     }
 }
