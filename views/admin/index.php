@@ -30,11 +30,11 @@
                     <p>Telefono: <span><?php echo $cita->telefono; ?></span></p>
 
                     <h3> Servicios</h3>
-                    <?php
+                    <?php 
                     $idCita = $cita->id;
             } // fin del IF ?>
-                <p class="servicio"><?php echo $cita->servicio . " " . $cita->precio; ?> </p>
-            </li>
+                <p class="servicio"><?php echo $cita->servicio . " " .
+                 $cita->precio; ?></p>
 
         <?php } // Fin del foreach  ?>
 
