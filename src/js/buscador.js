@@ -12,5 +12,6 @@ function buscarPorFecha(){
         const fechaSeleccionada = e.target.value;
 
         window.location = `?fecha=${fechaSeleccionada}`;
+        
     });
 }
