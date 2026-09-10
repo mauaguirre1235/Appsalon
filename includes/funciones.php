@@ -40,3 +40,9 @@ function isSession(): void
         session_start();
     }
 }
+
+function isAdmin(): void {
+    if(!isset($_SESSION['admin'])){
+        header('Location: /');
+    } 
+}
