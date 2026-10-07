@@ -1,0 +1,98 @@
+[33mc5a45ed[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{0}: reset: moving to c5a45ed
+[33m505a713[m HEAD@{1}: reset: moving to HEAD~1
+[33mc5a45ed[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{2}: reset: moving to HEAD
+[33mc5a45ed[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{3}: reset: moving to HEAD
+[33mc5a45ed[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{4}: reset: moving to HEAD~1
+[33m865a2d0[m HEAD@{5}: commit: Validacion a los servicios
+[33mc5a45ed[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{6}: commit: Validacion a los servicios
+[33m505a713[m HEAD@{7}: commit: Creando el formulario para Servicio
+[33m30431a2[m HEAD@{8}: commit: Creando las Vistas para los Servicios
+[33mc3d1002[m HEAD@{9}: commit: Routing para Servicios
+[33mdbd2481[m HEAD@{10}: commit: Routing para Servicios
+[33m53b717d[m HEAD@{11}: commit: proteger el panel de administracion
+[33m371e311[m HEAD@{12}: commit: Eliminar Citas
+[33mbac25f0[m HEAD@{13}: commit: Validar fechas
+[33mbea6223[m HEAD@{14}: commit: añadir la funcion para filtrar por fechas
+[33m034d28a[m HEAD@{15}: commit: Ajustando el diseño de la app
+[33m577eaa9[m HEAD@{16}: commit: Mostrando las citas por fecha
+[33m6288ac3[m HEAD@{17}: commit: Calcular el total a pagar
+[33m13b7d8e[m HEAD@{18}: commit: Css a las citas
+[33mc99e508[m HEAD@{19}: commit: Mostrando las citas en pantalla
+[33m6e78ec9[m HEAD@{20}: commit: Consulta la base de datos en PHP
+[33m99e0bbb[m HEAD@{21}: commit: Creando el modelo para las citas en el administrador
+[33m9ff0423[m HEAD@{22}: commit: creando la vista del panel de administrador
+[33me3db27a[m HEAD@{23}: commit: Añadir un boton para cerrar sesion
+[33m3286a9c[m HEAD@{24}: commit: Mostrando el nombre del cliente y dando estilo
+[33m08557c3[m HEAD@{25}: commit: Proteger la ruta de citas
+[33m04d0a03[m HEAD@{26}: commit: Guardando los servios de la cita
+[33m26b467b[m HEAD@{27}: commit: Mostrando una alerta
+[33maa7b043[m HEAD@{28}: commit: guardando cita con fetch
+[33m7c5b5ee[m HEAD@{29}: commit: Almacenando las citas en POSTMAN
+[33ma4190cf[m HEAD@{30}: commit: Añadir los servicios a la peticion Fetch
+[33mf2602d6[m HEAD@{31}: commit: Enviar los datos del formulario con FormData
+[33mfddfec2[m HEAD@{32}: commit: Enviar peticiones al servidor con Fetch API y Async
+[33me65284b[m HEAD@{33}: commit: Enviar peticiones al servidor
+[33m27c8b30[m HEAD@{34}: commit: Añadir un boton para reservar cita
+[33mb190b40[m HEAD@{35}: commit: Mostrar la fecha en un formato mas amigable
+[33me63c358[m HEAD@{36}: commit: Aplicando css al resumen
+[33ma5a4725[m HEAD@{37}: commit: Mostrar datos del resumen
+[33m2a78ef2[m HEAD@{38}: commit: mostrar alerta si faltan datos en el resumen
+[33m437675e[m HEAD@{39}: commit: Mostrar el resumen de la cita
+[33mfd24ab6[m HEAD@{40}: commit: Validar la hora de la cita
+[33m51da1a8[m HEAD@{41}: commit: Evitar reservar una fecha anterior
+[33m2fda7bd[m HEAD@{42}: commit: Mostrar mensajes de error en fechas
+[33m5efbf0e[m HEAD@{43}: commit: Almacenar la hora de la cita
+[33m5fb6279[m HEAD@{44}: commit: Almacenar el nombre del cliente
+[33m8552123[m HEAD@{45}: commit: Agregar / quitar servicios
+[33m94c6cd6[m HEAD@{46}: commit: Cambiar la apariencia de un servicio seleccionado
+[33mffc9dd3[m HEAD@{47}: commit: Seleccionando servicios para la cita
+[33ma262b8e[m HEAD@{48}: commit: CSS a los servicios
+[33m67b9e3e[m HEAD@{49}: commit: Mostrando los servicios de nuestra API
+[33m08baa7a[m HEAD@{50}: commit: Consultar la API con FETCH API y AsyncAwait
+[33m7823c4e[m HEAD@{51}: commit: Creando el modelo de Servicios y exportando a JSON
+[33me8ce0d1[m HEAD@{52}: commit: Finalizando el paginador
+[33ma8ed1b0[m HEAD@{53}: commit: Creando paginador
+[33m45a608b[m HEAD@{54}: commit: Finalizando la navegacion de tabs
+[33m9d39a7b[m HEAD@{55}: commit: Cambiando la seccion segun el tab presionado
+[33ma807d3a[m HEAD@{56}: commit: Primeros pasos con navegacion de tabs
+[33mb0e2284[m HEAD@{57}: commit: Añadiendo un script
+[33mef3879b[m HEAD@{58}: commit: Creando Botones Para Paginador
+[33m8d14774[m HEAD@{59}: commit: Creando tabs para navegacion
+[33me486c02[m HEAD@{60}: commit: Mostrar el nombre del usuario autenticado
+[33m46e8bfd[m HEAD@{61}: commit: Añadiendo los contenedores principales
+[33md49eaf9[m HEAD@{62}: commit: Creando Routing Y Controller para cita
+[33m0f9a232[m HEAD@{63}: commit: Almacenar el nuevo password
+[33m51a0954[m HEAD@{64}: commit: Validar el token
+[33m8bd797e[m HEAD@{65}: commit: Enviar un email con las instrucciones
+[33ma3aa152[m HEAD@{66}: commit: Verificar que el usuario exista y este verificado
+[33m1e12cf6[m HEAD@{67}: commit: añadiendo validacion
+[33mc5df4fa[m HEAD@{68}: commit: Autenticar al usuario
+[33m56b5729[m HEAD@{69}: commit: Validar si el usuario esta confirmado
+[33m2115842[m HEAD@{70}: commit: Revisar el password del usuario
+[33md26061f[m HEAD@{71}: commit: Verificando si el usuario existe
+[33m92de67e[m HEAD@{72}: commit: Añadiendo validacion
+[33m60bf01b[m HEAD@{73}: commit: Mostrar mensaje de exito o error
+[33m243e7cc[m HEAD@{74}: commit: Confirmar la cuenta del usuario por email
+[33me5e98b2[m HEAD@{75}: commit: Registrando al Usuario, Almacenando un Token y enviandolo por Email
+[33mba79c52[m HEAD@{76}: commit: Enviando un email con PHPMAILER y mailtrap
+[33mae85a72[m HEAD@{77}: commit: Crear una clase para enviar un email
+[33m37c4d7d[m HEAD@{78}: commit: Consideraciones cuando los usuarios crean sus cuentas
+[33mb9d8568[m HEAD@{79}: commit: HashearPassword
+[33mda0e16b[m HEAD@{80}: commit: Verifica que el usuario no este previamente registrado
+[33m3531d6e[m HEAD@{81}: commit: Finalizando la validacion
+[33ma9f386d[m HEAD@{82}: commit: CSS a las alertas
+[33mdc2411e[m HEAD@{83}: commit: Creando un templates de alerta
+[33m274ff85[m HEAD@{84}: commit: Validando la creacion del usuario
+[33m8d8221f[m HEAD@{85}: commit: Instanciando y sincronizando Usuario con el Formulario
+[33m724ab46[m HEAD@{86}: commit: Creando el modelo de usuario
+[33mb3517e4[m HEAD@{87}: commit: Creando la cuenta de olvide mi password
+[33m99811f5[m HEAD@{88}: commit: Creando la pagina para crear cuenta
+[33mffa89ed[m HEAD@{89}: commit: Añadiendo enlaces para una nueva cuenta y Olvide password
+[33mab9618b[m HEAD@{90}: commit: CSS al boton Submit
+[33m82e5bbf[m HEAD@{91}: commit: CSS al formulario
+[33m52e146e[m HEAD@{92}: commit: Creando el formulario de autenticacion
+[33m7c88dd3[m HEAD@{93}: commit: CSS ala vista
+[33m532e55f[m HEAD@{94}: commit: Añadiendo las vistas
+[33m7625b86[m HEAD@{95}: commit: Creando el Routing y Controlador para autenticacion
+[33m4139fdc[m HEAD@{96}: Branch: renamed refs/heads/master to refs/heads/main
+[33m4139fdc[m HEAD@{98}: commit (initial): Primer commit: Subiendo el proyecto
